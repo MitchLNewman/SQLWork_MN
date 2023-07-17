@@ -26,3 +26,20 @@ SELECT name FROM city WHERE SUBSTRING(name FROM 1 FOR 1) = 'F' LIMIT 25;
 ## Using COUNT and JOIN ... ON, get the number of cities in China.
 
 SELECT COUNT(city.name) as number_of_cities_in_China from city left join country on city.countrycode=country.code where country.name= 'China';
+
+## Using aggregate functions, return the number of countries the database contains
+
+SELECT COUNT(Name) FROM country;
+
+## What are the top ten largest countries by area?
+
+
+SELECT Name, SurfaceArea from country ORDER BY SurfaceArea DESC LIMIT 10;
+
+## List the five largest cities by population in Japan
+
+SELECT city.Name, city.Population from city LEFT JOIN country ON city.CountryCode = country.Code WHERE country.Name="Japan" ORDER BY city.Population DESC LIMIT 5;
+
+ ## List the names and country codes of every country with Elizabeth II as its Head of State. You will need to fix the mistake first
+
+SELECT Name, HeadOfState from country WHERE HeadOfState="Elisabeth II";
