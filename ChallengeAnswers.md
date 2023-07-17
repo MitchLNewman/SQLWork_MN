@@ -2,7 +2,6 @@
 
 mysql> SELECT COUNT(CountryCode) FROM city WHERE CountryCode = 'USA';
 
-
 ## Find out the population and life expectancy for people in Argentina.
 
 SELECT Population, LifeExpectancy FROM country WHERE name = 'Argentina';
@@ -26,3 +25,4 @@ SELECT name FROM city WHERE SUBSTRING(name FROM 1 FOR 1) = 'F' LIMIT 25;
 
 ## Using COUNT and JOIN ... ON, get the number of cities in China.
 
+SELECT COUNT(city.name) as number_of_cities_in_China from city left join country on city.countrycode=country.code where country.name= 'China';
